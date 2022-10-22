@@ -26,7 +26,7 @@ for (let c2 = 36; c2 < 36 + 18; c2++) {
   C2_Oct.push(c2);
 }
 // C3
-for (let c3 = 36; c3 < 36 + 18; c3++) {
+for (let c3 = 48; c3 < 48 + 18; c3++) {
   C3_Oct.push(c3);
 }
 // C4
@@ -48,4 +48,4 @@ for (let c7 = 96; c7 < 96 + 18; c7++) {
 
 mainOctArr.push(C0_Oct, C1_Oct, C2_Oct, C3_Oct, C4_Oct, C5_Oct, C6_Oct, C7_Oct);
 
-console.table('octaves: ', mainOctArr)
+// console.table('octaves: ', mainOctArr)

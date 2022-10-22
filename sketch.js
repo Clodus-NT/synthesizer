@@ -1,32 +1,38 @@
-let midiValArr = [];
-// Start at C0 (midi value 12) and loop to F8 (midi value 113)
-for (let i = 12; i <= 113; i++) {
-  midiValArr.push(i);
-}
-// console.log(midiValArr.length)
-
-// let C3Ref = 36; // C3 midi val is actually 48, but I didn't know what to name it and I need 36.
+let octSelect;
+let selectedOct;
 
 const keyOffset = 50;
 const moveOctave = 12;
 let osc, env;
 
-// The keys on a computer keyboard that will play a note
+// The keys on a computer keyboard that will play a note (musical typing)
 const keyboardOptions = [
   'a', 'w', 's', 'e', 'd', 'f', 't', 'g', 'y', 
   'h', 'u', 'j', 'k', 'o', 'l', 'p', ';', '\''
 ];
-// console.log(keyboardOptions.length)
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+
+  //Create a dropdown selector for octave options
+  octSelect = createSelect();
+  octSelect.position(10, 10);
+  octSelect.option('C0-F1');
+  octSelect.option('C1-F2');
+  octSelect.option('C2-F3');
+  octSelect.option('C3-F4');
+  octSelect.option('C4-F5');
+  octSelect.option('C5-F6');
+  octSelect.option('C6-F7');
+  octSelect.option('C7-F8');
+  octSelect.selected('C3-F4');
+  octSelect.changed(handleMusicalTyping);
+
+  // Create the oscillator and envelope
   env = new p5.Envelope(0.01, 0.5, 1, 0.5);
-  osc = new p5.Oscillator('triangle');
+  osc = new p5.Oscillator('sawtooth');
   osc.start();
   osc.amp(env);
-  // for (let i = 21; i <= 108; i++) {
-  //   midiValArray.push(i);
-  // }
 }
 
 function draw() {
@@ -38,21 +44,68 @@ function draw() {
   }
 }
 
+// Map notes to keys
 function handleMusicalTyping() {
-  for (let i = 0; i < keyboardOptions.length; i++) {
-    let C3Ref = 36;
-    if (keyIsPressed && key === keyboardOptions[i]) {
-      osc.freq(midiToFreq(midiValArr[i + C3Ref])); // By default, [i + C3Ref] will start keyboard key 'a' at C3
-      env.play();
-      // console.log(midiValArr[i + C3Ref], keyboardOptions[i], C3Ref)
-    }
-  }
-}
+  selectedOct = octSelect.value();
+  const C0 = 0; const C1 = 1; const C2 = 2; const C3 = 3; 
+  const C4 = 4; const C5 = 5; const C6 = 6; const C7 = 7;
 
-function handleOctaveChange() {
-  if (keyIsPressed && key === 'z') {
-    return C3Ref = C3Ref - 12;
-    // console.log(C3Ref)
+  if (selectedOct === 'C0-F1') {
+    for (let i = 0; i < keyboardOptions.length; i++) {
+      if (keyIsPressed && key === keyboardOptions[i]) {
+        osc.freq(midiToFreq(mainOctArr[C0][i]));
+        env.play();
+      } 
+    }
+  } else if (selectedOct === 'C1-F2') {
+    for (let i = 0; i < keyboardOptions.length; i++) {
+      if (keyIsPressed && key === keyboardOptions[i]) {
+        osc.freq(midiToFreq(mainOctArr[C1][i]));
+        env.play();
+      } 
+    }
+  } else if (selectedOct === 'C2-F3') {
+    for (let i = 0; i < keyboardOptions.length; i++) {
+      if (keyIsPressed && key === keyboardOptions[i]) {
+        osc.freq(midiToFreq(mainOctArr[C2][i]));
+        env.play();
+      } 
+    }
+  } else if (selectedOct === 'C3-F4') {
+    for (let i = 0; i < keyboardOptions.length; i++) {
+      if (keyIsPressed && key === keyboardOptions[i]) {
+        osc.freq(midiToFreq(mainOctArr[C3][i]));
+        env.play();
+      } 
+    }
+  } else if (selectedOct === 'C4-F5') {
+    for (let i = 0; i < keyboardOptions.length; i++) {
+      if (keyIsPressed && key === keyboardOptions[i]) {
+        osc.freq(midiToFreq(mainOctArr[C4][i]));
+        env.play();
+      } 
+    }
+  } else if (selectedOct === 'C5-F6') {
+    for (let i = 0; i < keyboardOptions.length; i++) {
+      if (keyIsPressed && key === keyboardOptions[i]) {
+        osc.freq(midiToFreq(mainOctArr[C5][i]));
+        env.play();
+      } 
+    }
+  } else if (selectedOct === 'C6-F7') {
+    for (let i = 0; i < keyboardOptions.length; i++) {
+      if (keyIsPressed && key === keyboardOptions[i]) {
+        osc.freq(midiToFreq(mainOctArr[C6][i]));
+        env.play();
+      } 
+    }
+  } else if (selectedOct === 'C7-F8') {
+    for (let i = 0; i < keyboardOptions.length; i++) {
+      if (keyIsPressed && key === keyboardOptions[i]) {
+        osc.freq(midiToFreq(mainOctArr[C7][i]));
+        env.play();
+      } 
+    }
   }
 }
 
@@ -63,5 +116,3 @@ function keyPressed() {
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight)
 }
-// console.log(midiValArray.length)
-console.log(mainOctArr.length)
