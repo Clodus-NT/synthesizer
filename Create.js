@@ -31,6 +31,29 @@ function createOsc() {
   osc.amp(env);
 }
 
+function createVis() {
+  // background(150);
+  let waveform = fft.waveform();
+  noFill(250);
+  beginShape();
+  stroke(138, 43, 226);
+  strokeWeight(3);
+  for (let i = 0; i < waveform.length; i++){
+    let x = map(i, 0, waveform.length, 0, width / 2.5);
+    let y = map( waveform[i], -1, 1, 0, height / 2.5);
+    vertex(x,y);
+  }
+  endShape();
+}
+
+function createKeys() {
+  for (let i = 0; i < keyboardOptions.length; i++) {
+    fill(255);
+    stroke(55)
+    rect(25 + (keyOffset * i), 150, 40, 200);
+  }
+}
+
 function handleWavForm() {
   selectedWav = wavSelect.value();
   if (selectedWav === 'sine') {
@@ -107,7 +130,3 @@ function handleMusicalTyping() {
     }
   }
 }
-
-// function wavVisual() {
-//   console.log('foo')
-// }

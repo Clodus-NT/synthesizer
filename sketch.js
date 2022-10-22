@@ -26,12 +26,9 @@ function setup() {
 }
 
 function draw() {
-  background(100);
-  // Draw a rectangle for each pc keyboard key in keyboardOptions
-  // for (let i = 0; i < keyboardOptions.length; i++) {
-  //   fill(255);
-  //   rect(25 + (keyOffset * i), 100, 40, 200);
-  // }
+  background(200);
+  createVis();
+  createKeys();
 }
 
 function keyPressed() {
