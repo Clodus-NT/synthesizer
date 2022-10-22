@@ -19,7 +19,6 @@ function createOsc() {
   osc.start();
   // osc.amp(env);
 }
-
   // Allows waveform to be chosen
 function handleWavForm() {
   selectedWav = wavSelect.value();
@@ -94,25 +93,34 @@ function createVis() {
 
 // Generate Keys
 function createKeys() {
-  const keyOffset = 35;
+  const keyOffset = 40;
   for (let i = 0; i < keyboardOptions.length; i++) {
     if (keysArr[i] === 'white') {
-      fill(255);
-      stroke(55);
-      rect(30 + (keyOffset * i), 150, 40, 200);
-      text(keyboardOptions[i])
+      if (keyIsPressed && key === keyboardOptions[i]) {
+        fill(200);
+        strokeWeight(1);
+        stroke(150);
+        rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
+      } else {
+        fill(250);
+        strokeWeight(1);
+        stroke(150);
+        rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
+      }
     } else if (keysArr[i] === 'black') {
-      fill(0);
-      stroke(55);
-      rect(35 + (keyOffset * i), 150, 40, 200);
-      text(keyboardOptions[i])
+      if (keyIsPressed && key === keyboardOptions[i]) {
+        fill(75);
+        strokeWeight(1);
+        stroke(150);
+        rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
+      } else {
+        fill(0);
+        strokeWeight(1);
+        stroke(150);
+        rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
+      }
     }
   }
-  // for (let i = 0; i < keyboardOptions.length; i++) {
-  //   fill(255);
-  //   stroke(55)
-  //   rect(30 + (keyOffset * i), 150, 30, 200);
-  // }
 }
 
 // Handles both note range selector and musical typing

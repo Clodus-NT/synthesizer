@@ -17,7 +17,7 @@ const keysArr = [
 
 function setup() {
   // Generate the canvas and change default FR to 30fps
-  canvas = createCanvas(windowWidth/2, windowHeight / 2);
+  canvas = createCanvas(780, 600);
   frameRate(30);
   //Create a dropdown selector for octave options
   createOctSelect();
