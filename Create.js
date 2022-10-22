@@ -1,14 +1,4 @@
-function createWavSelect() {
-  wavSelect = createSelect();
-  wavSelect.position(120, 40);
-  wavSelect.option('sine');
-  wavSelect.option('triangle');
-  wavSelect.option('sawtooth');
-  wavSelect.option('square');
-  wavSelect.selected('sawtooth');
-  wavSelect.changed(handleWavForm)
-}
-
+// Oscillator
 function createOctSelect() {
   octSelect = createSelect();
   octSelect.position(40, 40);
@@ -23,14 +13,69 @@ function createOctSelect() {
   octSelect.selected('C3-F4');
   octSelect.changed(handleMusicalTyping);
 }
-
 function createOsc() {
-  env = new p5.Envelope(0.01, 0.5, 1, 0.5);
-  osc = new p5.Oscillator('sawtooth');
+  // env = new p5.Envelope(attVal, 0.5, 1, 0.5);
+  osc = new p5.Oscillator('square');
   osc.start();
-  osc.amp(env);
+  // osc.amp(env);
 }
 
+  // Allows waveform to be chosen
+function handleWavForm() {
+  selectedWav = wavSelect.value();
+  if (selectedWav === 'sine') {
+    osc.setType('sine');
+  } else if (selectedWav === 'triangle') {
+    osc.setType('triangle');
+  } else if (selectedWav === 'sawtooth') {
+    osc.setType('sawtooth');
+  } else if (selectedWav === 'square') {
+    osc.setType('square');
+  }
+}
+function createWavSelect() {
+  wavSelect = createSelect();
+  wavSelect.position(120, 40);
+  wavSelect.option('sine');
+  wavSelect.option('triangle');
+  wavSelect.option('sawtooth');
+  wavSelect.option('square');
+  wavSelect.selected('square');
+  wavSelect.changed(handleWavForm)
+}
+
+// Envelope
+function createEnv() {
+  env = new p5.Envelope();
+  osc.amp(env);
+}
+function envSliderSetup() {
+  // Attack
+  attSlider = createSlider(0, 1, 0, 0);
+  attSlider.position(10, 60);
+  attSlider.style('width', '80px');
+  // Decay
+  decSlider = createSlider(0, 1, 0, 0);
+  decSlider.position(10, 80);
+  decSlider.style('width', '80px');
+  // Sustain
+  susSlider = createSlider(0, 1, 0, 0);
+  susSlider.position(10, 100);
+  susSlider.style('width', '80px');
+  // Release
+  relSlider = createSlider(0, 1, 0, 0);
+  relSlider.position(10, 120);
+  relSlider.style('width', '80px');
+}
+function handleEnv() {
+  attTime = attSlider.value();
+  decTime = decSlider.value();
+  susTime = susSlider.value();
+  relTime = relSlider.value();
+  env.setADSR(attTime, decTime, susTime, relTime);
+}
+
+// Oscilloscope
 function createVis() {
   // background(150);
 
@@ -47,28 +92,30 @@ function createVis() {
   endShape();
 }
 
+// Generate Keys
 function createKeys() {
-  const keyOffset = 50;
+  const keyOffset = 35;
   for (let i = 0; i < keyboardOptions.length; i++) {
-    fill(255);
-    stroke(55)
-    rect(25 + (keyOffset * i), 150, 40, 200);
+    if (keysArr[i] === 'white') {
+      fill(255);
+      stroke(55);
+      rect(30 + (keyOffset * i), 150, 40, 200);
+      text(keyboardOptions[i])
+    } else if (keysArr[i] === 'black') {
+      fill(0);
+      stroke(55);
+      rect(35 + (keyOffset * i), 150, 40, 200);
+      text(keyboardOptions[i])
+    }
   }
+  // for (let i = 0; i < keyboardOptions.length; i++) {
+  //   fill(255);
+  //   stroke(55)
+  //   rect(30 + (keyOffset * i), 150, 30, 200);
+  // }
 }
 
-function handleWavForm() {
-  selectedWav = wavSelect.value();
-  if (selectedWav === 'sine') {
-    osc.setType('sine');
-  } else if (selectedWav === 'triangle') {
-    osc.setType('triangle');
-  } else if (selectedWav === 'sawtooth') {
-    osc.setType('sawtooth');
-  } else if (selectedWav === 'square') {
-    osc.setType('square');
-  }
-}
-
+// Handles both note range selector and musical typing
 function handleMusicalTyping() {
   selectedOct = octSelect.value();
   const C0 = 0; const C1 = 1; const C2 = 2; const C3 = 3; 
