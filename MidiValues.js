@@ -2,14 +2,8 @@
 // Arrays for C0-C7 as well as mainOctArr are intitialized as empty.
 // Then for loops are used to push the correct midi values to each C_Oct array.
 // And finally, each of those arrays are pushed into the mainOctArr.
-let C0_Oct = [];
-let C1_Oct = [];
-let C2_Oct = [];
-let C3_Oct = [];
-let C4_Oct = [];
-let C5_Oct = [];
-let C6_Oct = [];
-let C7_Oct = [];
+let C0_Oct = []; let C1_Oct = []; let C2_Oct = []; let C3_Oct = [];
+let C4_Oct = []; let C5_Oct = []; let C6_Oct = []; let C7_Oct = [];
 let mainOctArr = [];
 
 

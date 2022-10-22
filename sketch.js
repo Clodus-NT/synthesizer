@@ -1,7 +1,5 @@
-let octSelect;
-let selectedOct;
-let wavSelect;
-let selectedWav;
+let octSelect, selectedOct;
+let wavSelect, selectedWav;
 
 const keyOffset = 50;
 const moveOctave = 12;
