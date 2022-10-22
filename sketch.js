@@ -1,5 +1,7 @@
 let octSelect;
 let selectedOct;
+let wavSelect;
+let selectedWav;
 
 const keyOffset = 50;
 const moveOctave = 12;
@@ -16,7 +18,7 @@ function setup() {
 
   //Create a dropdown selector for octave options
   octSelect = createSelect();
-  octSelect.position(10, 10);
+  octSelect.position(40, 40);
   octSelect.option('C0-F1');
   octSelect.option('C1-F2');
   octSelect.option('C2-F3');
@@ -28,9 +30,22 @@ function setup() {
   octSelect.selected('C3-F4');
   octSelect.changed(handleMusicalTyping);
 
+  //Create dropwdown selector for waveform options
+  wavSelect = createSelect();
+  wavSelect.position(120, 40);
+  wavSelect.option('sine');
+  wavSelect.option('triangle');
+  wavSelect.option('sawtooth');
+  wavSelect.option('square');
+  wavSelect.selected('sawtooth');
+  wavSelect.changed(handleWavForm)
+  // selectedWav = octSelect.value();
+  
+
   // Create the oscillator and envelope
   env = new p5.Envelope(0.01, 0.5, 1, 0.5);
   osc = new p5.Oscillator('sawtooth');
+
   osc.start();
   osc.amp(env);
 }
@@ -44,7 +59,7 @@ function draw() {
   }
 }
 
-// Map notes to keys
+// Map notes to keys and provide octave selection
 function handleMusicalTyping() {
   selectedOct = octSelect.value();
   const C0 = 0; const C1 = 1; const C2 = 2; const C3 = 3; 
@@ -107,6 +122,21 @@ function handleMusicalTyping() {
       } 
     }
   }
+}
+
+// Change waveform based on user choice
+function handleWavForm() {
+  selectedWav = wavSelect.value();
+  if (selectedWav === 'sine') {
+    osc.setType('sine');
+  } else if (selectedWav === 'triangle') {
+    osc.setType('triangle');
+  } else if (selectedWav === 'sawtooth') {
+    osc.setType('sawtooth');
+  } else if (selectedWav === 'square') {
+    osc.setType('square');
+  }
+
 }
 
 function keyPressed() {
