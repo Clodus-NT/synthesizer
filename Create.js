@@ -33,6 +33,7 @@ function createOsc() {
 
 function createVis() {
   // background(150);
+
   let waveform = fft.waveform();
   noFill(250);
   beginShape();
@@ -47,6 +48,7 @@ function createVis() {
 }
 
 function createKeys() {
+  const keyOffset = 50;
   for (let i = 0; i < keyboardOptions.length; i++) {
     fill(255);
     stroke(55)
