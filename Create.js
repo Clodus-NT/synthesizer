@@ -12,6 +12,7 @@ function createOctSelect() {
   octSelect.option('C7-F8');
   octSelect.selected('C3-F4');
   octSelect.changed(handleMusicalTyping);
+  // octSelect.parent('note-range-controls');
 }
 function createOsc() {
   // env = new p5.Envelope(attVal, 0.5, 1, 0.5);
@@ -21,6 +22,8 @@ function createOsc() {
 }
   // Allows waveform to be chosen
 function handleWavForm() {
+  // const wavDropdown = document.querySelectorAll('.wav-menu');
+
   selectedWav = wavSelect.value();
   if (selectedWav === 'sine') {
     osc.setType('sine');
@@ -114,6 +117,7 @@ function createKeys() {
     }
   }
 }
+
 // function createKeys() {
 //   const keyOffset = 40;
 //   for (let i = 0; i < keyboardOptions.length; i++) {

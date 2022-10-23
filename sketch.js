@@ -33,7 +33,7 @@ function setup() {
   
   //Create oscilloscope
   fft = new p5.FFT();
-  createVis();
+
   //Env Sliders
   // envSliderSetup();
 }
