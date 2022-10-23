@@ -17,7 +17,7 @@ const keysArr = [
 
 function setup() {
   // Generate the canvas and change default FR to 30fps
-  canvas = createCanvas(windowWidth/2, windowHeight/2);
+  canvas = createCanvas(windowWidth/2, windowHeight/2.75);
   canvas.parent('oscilloscope')
   frameRate(30);
   //Create a dropdown selector for octave options
@@ -39,7 +39,7 @@ function setup() {
 }
 
 function draw() {
-  background(200);
+  background(225);
   createVis();
   // createKeys();
   // handleEnv();

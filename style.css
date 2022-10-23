@@ -16,22 +16,31 @@ body {
   font-family: sans-serif;
 }
 
+.synth-title2 {
+  margin: 0;
+  text-align: center;
+  color: white;
+  font-family: sans-serif;
+}
+
 canvas {
   display: block;
   margin: auto;
   border-radius: 15px;
-  box-shadow: 0 0 3.5px 3.5px rgb(107, 107, 107);
+  box-shadow: 0 0 3px 2.5px rgb(160, 160, 160);
 }
 
-/* #keyboard-container {
-  text-align: center;
-} */
+#keyboard-container {
+  border: 2px solid rgb(46, 46, 46);
+  padding: 25px;
+}
 
 #keyboard {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
+  margin: 0;
 }
 
 .key {
@@ -54,4 +63,14 @@ canvas {
 .black-key {
   color: white;
   background-color: black;
+}
+
+.instructions {
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.instructions-para {
+  font-size: 21px;
 }
