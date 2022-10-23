@@ -16,10 +16,6 @@ const keysArr = [
 ]
 
 function setup() {
-  // Mimic audio context
-  audioCtx = getAudioContext().suspend();
-  // userStartAudio();
-  // console.log(audioCtx.state)
   // Generate the canvas and change default FR to 30fps
   canvas = createCanvas(windowWidth/2, windowHeight/2.75);
   canvas.parent('oscilloscope')
@@ -32,7 +28,7 @@ function setup() {
   createOsc();
   //Create Envelope
   createEnv();
-  envSliderSetup()
+  // envSliderSetup()
   
   // Create Keyboard (<ul> with an <li> as each key)
   createKeys();

@@ -51,59 +51,59 @@ function createEnv() {
   env = new p5.Envelope();
   osc.amp(env);
 }
-function envSliderSetup() {
-  // Attack
-  attSlider = document.getElementById('attSlider');
-  // attTime = attSlider.value;
-  // Decay
-  decSlider = document.getElementById('decSlider');
-  // decTime = decSlider.value;
-  // Sustain
-  susSlider = document.getElementById('susSlider');
-  // susTime = susSlider.value;
-  // Release
-  relSlider = document.getElementById('relSlider');
-  // relTime = relSlider.value;
-  // handleEnv();
-  // env.setADSR(attTime, decTime, susTime, relTime);
-  // // Attack
-  // attSlider = createSlider(0, 1, 0, 0);
-  // attSlider.position(10, 60);
-  // attSlider.style('width', '80px');
-  // // Decay
-  // decSlider = createSlider(0, 1, 0, 0);
-  // decSlider.position(10, 80);
-  // decSlider.style('width', '80px');
-  // // Sustain
-  // susSlider = createSlider(0, 1, 0, 0);
-  // susSlider.position(10, 100);
-  // susSlider.style('width', '80px');
-  // // Release
-  // relSlider = createSlider(0, 1, 0, 0);
-  // relSlider.position(10, 120);
-  // relSlider.style('width', '80px');
-}
-function handleEnv() {
-  Attack
-  attSlider = document.getElementById('attSlider');
-  attTime = attSlider.value();
-  attLvl = 0.5;
-  // Decay
-  decSlider = document.getElementById('decSlider');
-  decTime = decSlider.value();
-  // Sustain
-  susSlider = document.getElementById('susSlider');
-  susTime = susSlider.value();
-  // Release
-  relSlider = document.getElementById('relSlider');
-  susTime = susSlider.value();
+// function envSliderSetup() {
+//   // Attack
+//   attSlider = document.getElementById('attSlider');
+//   // attTime = attSlider.value;
+//   // Decay
+//   decSlider = document.getElementById('decSlider');
+//   // decTime = decSlider.value;
+//   // Sustain
+//   susSlider = document.getElementById('susSlider');
+//   // susTime = susSlider.value;
+//   // Release
+//   relSlider = document.getElementById('relSlider');
+//   // relTime = relSlider.value;
+//   // handleEnv();
+//   // env.setADSR(attTime, decTime, susTime, relTime);
+//   // // Attack
+//   // attSlider = createSlider(0, 1, 0, 0);
+//   // attSlider.position(10, 60);
+//   // attSlider.style('width', '80px');
+//   // // Decay
+//   // decSlider = createSlider(0, 1, 0, 0);
+//   // decSlider.position(10, 80);
+//   // decSlider.style('width', '80px');
+//   // // Sustain
+//   // susSlider = createSlider(0, 1, 0, 0);
+//   // susSlider.position(10, 100);
+//   // susSlider.style('width', '80px');
+//   // // Release
+//   // relSlider = createSlider(0, 1, 0, 0);
+//   // relSlider.position(10, 120);
+//   // relSlider.style('width', '80px');
+// }
+// function handleEnv() {
+//   Attack
+//   attSlider = document.getElementById('attSlider');
+//   attTime = attSlider.value();
+//   attLvl = 0.5;
+//   // Decay
+//   decSlider = document.getElementById('decSlider');
+//   decTime = decSlider.value();
+//   // Sustain
+//   susSlider = document.getElementById('susSlider');
+//   susTime = susSlider.value();
+//   // Release
+//   relSlider = document.getElementById('relSlider');
+//   susTime = susSlider.value();
 
-  // attTime = attSlider.value;
-  // decTime = decSlider.value;
-  // susTime = susSlider.value;
-  // susTime = susSlider.value;
-  env.setADSR(attTime, decTime, susTime, relTime);
-}
+//   // attTime = attSlider.value;
+//   // decTime = decSlider.value;
+//   // susTime = susSlider.value;
+//   // susTime = susSlider.value;
+//   env.setADSR(attTime, decTime, susTime, relTime);
+// }
 
 // Oscilloscope
 function createVis() {

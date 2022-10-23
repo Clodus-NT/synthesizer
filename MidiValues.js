@@ -6,10 +6,10 @@ let C0_Oct = []; let C1_Oct = []; let C2_Oct = []; let C3_Oct = [];
 let C4_Oct = []; let C5_Oct = []; let C6_Oct = []; let C7_Oct = [];
 let mainOctArr = [];
 
-const keyboardOptions = [
-  'a', 'w', 's', 'e', 'd', 'f', 't', 'g', 'y', 
-  'h', 'u', 'j', 'k', 'o', 'l', 'p', ';', '\''
-];
+// const keyboardOptions = [
+//   'a', 'w', 's', 'e', 'd', 'f', 't', 'g', 'y', 
+//   'h', 'u', 'j', 'k', 'o', 'l', 'p', ';', '\''
+// ];
 
 
 // C0
