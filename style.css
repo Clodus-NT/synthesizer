@@ -4,10 +4,54 @@ html, body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgb(23, 23, 23);
+}
+
+.synth-title {
   text-align: center;
+  color: white;
+  font-family: sans-serif;
 }
 
 canvas {
   display: block;
   margin: auto;
+  border-radius: 15px;
+  box-shadow: 0 0 3.5px 3.5px rgb(107, 107, 107);
+}
+
+/* #keyboard-container {
+  text-align: center;
+} */
+
+#keyboard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.key {
+  display: flex;
+  font-family: sans-serif;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgb(46, 46, 46);
+  border-radius: 3.5px 3.5px 10px 10px;
+  width: 45px;
+  height: 125px;
+  list-style: none;
+}
+
+.white-key {
+  background-color: white;
+}
+
+.black-key {
+  color: white;
+  background-color: black;
 }

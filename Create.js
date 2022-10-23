@@ -84,8 +84,8 @@ function createVis() {
   stroke(138, 43, 226);
   strokeWeight(3);
   for (let i = 0; i < waveform.length; i++){
-    let x = map(i, 0, waveform.length, 0, width / 2.5);
-    let y = map( waveform[i], -1, 1, 0, height / 2.5);
+    let x = map(i, 0, waveform.length, 0, width);
+    let y = map( waveform[i], -1, 1, 0, height);
     vertex(x,y);
   }
   endShape();
@@ -93,35 +93,57 @@ function createVis() {
 
 // Generate Keys
 function createKeys() {
-  const keyOffset = 40;
   for (let i = 0; i < keyboardOptions.length; i++) {
-    if (keysArr[i] === 'white') {
-      if (keyIsPressed && key === keyboardOptions[i]) {
-        fill(200);
-        strokeWeight(1);
-        stroke(150);
-        rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
-      } else {
-        fill(250);
-        strokeWeight(1);
-        stroke(150);
-        rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
-      }
-    } else if (keysArr[i] === 'black') {
-      if (keyIsPressed && key === keyboardOptions[i]) {
-        fill(75);
-        strokeWeight(1);
-        stroke(150);
-        rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
-      } else {
-        fill(0);
-        strokeWeight(1);
-        stroke(150);
-        rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
-      }
+    const keyboardUL = document.getElementById('keyboard');
+    let keyboardLI = document.createElement('li');
+    keyboardLI.innerText = keyboardOptions[i].toUpperCase();
+    keyboardLI.classList.add('key');
+    keyboardUL.append(keyboardLI);
+    if (
+      keyboardOptions[i] === 'w' || 
+      keyboardOptions[i] === 'e' ||
+      keyboardOptions[i] === 't' ||
+      keyboardOptions[i] === 'y' ||
+      keyboardOptions[i] === 'u' ||
+      keyboardOptions[i] === 'o' ||
+      keyboardOptions[i] === 'p'
+    ) {
+      keyboardLI.classList.add('black-key');
+    } else {
+      keyboardLI.classList.add('white-key');
     }
   }
 }
+// function createKeys() {
+//   const keyOffset = 40;
+//   for (let i = 0; i < keyboardOptions.length; i++) {
+//     if (keysArr[i] === 'white') {
+//       if (keyIsPressed && key === keyboardOptions[i]) {
+//         fill(200);
+//         strokeWeight(1);
+//         stroke(150);
+//         rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
+//       } else {
+//         fill(250);
+//         strokeWeight(1);
+//         stroke(150);
+//         rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
+//       }
+//     } else if (keysArr[i] === 'black') {
+//       if (keyIsPressed && key === keyboardOptions[i]) {
+//         fill(75);
+//         strokeWeight(1);
+//         stroke(150);
+//         rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
+//       } else {
+//         fill(0);
+//         strokeWeight(1);
+//         stroke(150);
+//         rect(30 + (keyOffset * i), 150, 40, 200, 2, 2, 7, 7);
+//       }
+//     }
+//   }
+// }
 
 // Handles both note range selector and musical typing
 function handleMusicalTyping() {

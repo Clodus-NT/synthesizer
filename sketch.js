@@ -17,7 +17,8 @@ const keysArr = [
 
 function setup() {
   // Generate the canvas and change default FR to 30fps
-  canvas = createCanvas(780, 600);
+  canvas = createCanvas(windowWidth/2, windowHeight/2);
+  canvas.parent('oscilloscope')
   frameRate(30);
   //Create a dropdown selector for octave options
   createOctSelect();
@@ -27,6 +28,8 @@ function setup() {
   createOsc();
   //Create Envelope
   createEnv();
+  // Create Keyboard (<ul> with an <li> as each key)
+  createKeys();
   
   //Create oscilloscope
   fft = new p5.FFT();
@@ -38,7 +41,7 @@ function setup() {
 function draw() {
   background(200);
   createVis();
-  createKeys();
+  // createKeys();
   // handleEnv();
 }
 
