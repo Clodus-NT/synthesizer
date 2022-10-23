@@ -3,7 +3,7 @@ let wavSelect, selectedWav;
 let attSlider, decSlider, susSlider, relSlider;
 let attLvl, relLvl;
 let attTime, decTime, susTime, relTime;
-let osc, env, fft, audioCtx, pwrBtn;
+let osc, monoSynth, env, fft;
 let canvas;
 // The keys on a computer keyboard that will play a note (musical typing)
 const keyboardOptions = [
