@@ -79,9 +79,8 @@ function handleEnv() {
 
 // Oscilloscope
 function createVis() {
-  // background(150);
-
   let waveform = fft.waveform();
+
   noFill(250);
   beginShape();
   stroke(138, 43, 226);

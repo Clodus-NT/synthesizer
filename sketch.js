@@ -3,7 +3,7 @@ let wavSelect, selectedWav;
 let attSlider, decSlider, susSlider, relSlider;
 let attLvl, relLvl;
 let attTime, decTime, susTime, relTime;
-let osc, env, fft;
+let osc, env, fft, audioCtx, pwrBtn;
 let canvas;
 // The keys on a computer keyboard that will play a note (musical typing)
 const keyboardOptions = [
@@ -16,6 +16,10 @@ const keysArr = [
 ]
 
 function setup() {
+  // Mimic audio context
+  audioCtx = getAudioContext().suspend();
+  // userStartAudio();
+  // console.log(audioCtx.state)
   // Generate the canvas and change default FR to 30fps
   canvas = createCanvas(windowWidth/2, windowHeight/2.75);
   canvas.parent('oscilloscope')
@@ -41,8 +45,13 @@ function setup() {
 function draw() {
   background(225);
   createVis();
+  // toggleAudioCtx();
   // createKeys();
   // handleEnv();
+}
+
+function mousePressed() {
+  userStartAudio();
 }
 
 function keyPressed() {
