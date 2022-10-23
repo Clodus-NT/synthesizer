@@ -32,6 +32,8 @@ function setup() {
   createOsc();
   //Create Envelope
   createEnv();
+  envSliderSetup()
+  
   // Create Keyboard (<ul> with an <li> as each key)
   createKeys();
   
@@ -45,6 +47,7 @@ function setup() {
 function draw() {
   background(225);
   createVis();
+  // handleEnv();
   // toggleAudioCtx();
   // createKeys();
   // handleEnv();

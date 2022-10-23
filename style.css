@@ -32,7 +32,7 @@ canvas {
 
 #keyboard-container {
   margin: auto;
-  background-color: rgb(131, 87, 178);
+  background-color: rgb(65, 65, 65);
   border: 2px solid rgb(46, 46, 46);
   border-radius: 15px;
   width: 75vw;
@@ -56,80 +56,16 @@ canvas {
   margin: 10px;
 }
 
-.wav-menu {
-  box-sizing: border-box;
-}
-
-.wav-select {
+#modulation {
   display: flex;
-  background-color: #2a2f3b;
-  justify-content: space-between;
+}
+
+.env-container {
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  border: 2px #2a2f3b solid;
-  border-radius: 0.5em;
-  padding: 0.5em;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.selected-wav {
-  border: 2px #26489a solid;
-  box-shadow: 0 0 0,8em #26489a;
-}
-
-.selected-wav:hover {
-  background: #323741;
-}
-
-.wav-caret {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 6px solid #fff;
-  transition: 0.3s;
-}
-
-.caret-rotate {
-  transform: rotate(180deg);
-}
-
-.wav-options {
-  list-style: none;
-  padding: 0.2em 0.5em;
-  background: #323741;
-  border: 1px #363a43 solid;
-  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
-  border-radius: 0.5em;
-  color: #9fa5b5;
-  position: absolute;
-  top: 3em;
-  width: 100%;
-  transform: translateX(-50%);
-  opacity: 0;
-  display: none;
-  transition: 0.2s;
-  z-index: 1;
-}
-
-.wav-li {
-  padding: 0.7em 0.5em;
-  margin: 0.3em 0;
-  border-radius: 0.5em;
-  cursor: pointer;
-}
-
-.wav-li:hover {
-  background: #2a2d35;
-}
-
-.active-wav {
-  background: #23242a;
-}
-
-.open-wav-options {
-  display: block;
-  opacity: 1;
+  justify-content: center;
+  color: white;
 }
 
 .key {

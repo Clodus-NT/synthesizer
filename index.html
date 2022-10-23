@@ -15,7 +15,20 @@
     <div id="keyboard-container">
       <div id="oscilloscope"></div>
       <div id="modulation">
-        <!-- <div id="waveform-controls">
+        <div class="env-container">
+          <input class="envSliders" id="attSlider" type="range" min="0" max="5" step="any">
+          <label for="attSlider">Attack</label>
+
+          <input class="envSliders" id="decSlider" type="range" min="0" max="5" step="any">
+          <label for="decSlider">Decay</label>
+
+          <input class="envSliders" id="susSlider" type="range" min="0" max="1" step="any">
+          <label for="susSlider">Sustain</label>
+
+          <input class="envSliders" id="relSlider" type="range" min="0" max="5" step="any">
+          <label for="relSlider">Release</label>
+        </div>
+        <div id="waveform-controls">
           <div class="wav-menu">
             <div class="wav-select">
               <span class="selected-wav">Sine</span>
@@ -28,7 +41,7 @@
               <li class="wav-li">Square</li>
             </ul>
           </div>
-        </div> -->
+        </div>
 
         <!-- <div id="note-range-controls">
 
